@@ -26,21 +26,23 @@ function printStacks() {
 - disc1 to stack.a; disc2 to stack.b; disc1 to stack.b; disc4 to stack.c;
 - disc1 to stack.c; disc2 to stack.a; disc1 to stack.a; disc3 to stackc;
 - disc1 to stack.b; disc2 to stack.c; disc1 to stack.c for the WIN!.*/
- */
 
- const movePiece = (disc,a,b,c) => { //parameter includes 4 disc and 3 columns
-     if (disc > 0) { //if disc are greater than 0(smallest to largest sizes)
-         movePiece(disc - 1,a,c,b); //stack.a will lose the top disc, disc can be moved from all 3 stacks, but the size/value of the disc does not allow larger disc placement over smaller disc.
-         movePiece(disc - 1,b,a,c);
-         document.write("Move disc " + disc + " from " + a + " to " + c + "<br />");
-     }
+
+ const movePiece = (startStack, endStack) => { //parameter includes 4 disc and 3 columns
+   console.log(stacks[startStack] + "is stacks.startStack working?");
+
+    let movingPiece = stacks.pop(startStack);
+    stacks.push(endStack);
+
+
  };
- movePiece(4,"a","b","c");
+
+
 
 const isLegal = (disc) => {
   // Verifies if the size of the disc and ensure the moved disc does not exceed the size of the disc below.
 
- if (4 > disc){  
+ if (4 > disc){
    return "Keep going!";
  } else if (3 > disc){
     "Keep going!";
@@ -55,7 +57,7 @@ const isLegal = (disc) => {
 // function verifies the move is legal and moved to the correct stack.
 const checkForWin = (disc)=>{
 
-  if (isLegalWi){
+  if (isLegal){
     return 'Win'
   }
 }
@@ -63,13 +65,14 @@ console.log(checkForWin([4,3,2,1]));
 
 const towersOfHanoi = (startStack, endStack) => {
   // Create a function to support the overall game.
-
+console.log(startStack + "should say startStack letter");
+movePiece(startStack, endStack);
 checkForWin();
  if (startStack === endStack){
    return 'Win!';
  }
 }
-towersOfHanoi('a','c');
+towersOfHanoi();
 
 function getPrompt() {
   printStacks();
