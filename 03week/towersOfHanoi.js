@@ -28,13 +28,9 @@ function printStacks() {
 - disc1 to stack.b; disc2 to stack.c; disc1 to stack.c for the WIN!.*/
 
 
- const movePiece = (startStack, endStack) => { //parameter includes 4 disc and 3 columns
-   console.log(stacks[startStack] + "is stacks.startStack working?");
-
-    let movingPiece = stacks.pop(startStack);
-    stacks.push(endStack);
-
-
+ const movePiece = (startStack, endStack) => { 
+   stacks[endStack].push(stacks[startStack].pop());
+   console.log(movePiece());
  };
 
 
