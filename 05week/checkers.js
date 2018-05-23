@@ -6,7 +6,9 @@ const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
-
+/* White boarding
+create board with
+*/
 
 function Checker() {
   // Your code here
