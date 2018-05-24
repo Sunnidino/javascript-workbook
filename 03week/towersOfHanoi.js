@@ -13,98 +13,144 @@ let stacks = {
   c: []
 };
 
-function printStacks() {
+function printStacks(startStack,endStack) {
   console.log("a: " + stacks.a);
   console.log("b: " + stacks.b);
   console.log("c: " + stacks.c);
-
-}/* Whiteboarding
-//  - Create 3 columns(stacks);
-//  - Create a variable for 4 disc
-//  - Start to movePiece
-// - disc1 to stack.b; disc2 to stack.c; disc1 to stack.c; disc 3 to stack.b;
-// - disc1 to stack.a; disc2 to stack.b; disc1 to stack.b; disc4 to stack.c;
-// - disc1 to stack.c; disc2 to stack.a; disc1 to stack.a; disc3 to stackc;
-// - disc1 to stack.b; disc2 to stack.c; disc1 to stack.c for the WIN!.*/
-
-function movePiece(startStack,endStack) {
-  // Your code here
-  const capturedDisk = stacks[startStack].pop();
-   stacks[endStack].push(capturedDisk);
 }
 
-function isLegal(startStack, endStack) {
+function movePiece(startStack, endStack) {
   // Your code here
- if(stacks[startStack].length === 0){
-   return false;
-   console.log("Invalid Entry");
- } let stacks = {
-   a: [4, 3, 2, 1],
-   b: [],
-   c: []
- };
+ stacks[endStack].push(stacks[startStack].pop());
 
- function printStacks() {
-   console.log("a: " + stacks.a);
-   console.log("b: " + stacks.b);
-   console.log("c: " + stacks.c);
+}
 
- }/* Whiteboarding
- //  - Create 3 columns(stacks);
- //  - Create a variable for 4 disc
- //  - Start to movePiece
- // - disc1 to stack.b; disc2 to stack.c; disc1 to stack.c; disc 3 to stack.b;
- // - disc1 to stack.a; disc2 to stack.b; disc1 to stack.b; disc4 to stack.c;
- // - disc1 to stack.c; disc2 to stack.a; disc1 to stack.a; disc3 to stackc;
- // - disc1 to stack.b; disc2 to stack.c; disc1 to stack.c for the WIN!.*/
-
- function movePiece(startStack,endStack) {
-   // Your code here
-   const capturedDisk = stacks[startStack].pop();
-    stacks[endStack].push(capturedDisk);
- }
-
- function isLegal(startStack, endStack) {
-   // Your code here
+function isLegal(startStack,endStack) {
+  // Your code here
   if(stacks[startStack].length === 0){
     return false;
     console.log("Invalid Entry");
-  } else (stacks[endStack].length -1 > )
- }
-
- function checkForWin() {
-   // Your code here
-  if (stacks.c.length === 4){
-    console.log("Win!");
+  } else if (stacks[endStack].length === 0) {
+    return true;
+  } else {
+    return stacks[startStack].lastIndexOf() < stacks[endStack].lastIndexOf();
+    //return stacks[startStack][stacks[startStack].length - 1] < stacks[endStack][stacks[endStack].length - 1];
   }
- }
-
- function towersOfHanoi(startStack, endStack) {
-   // Your code here
- if (isLegal(startStack, endStack)){
-   movePiece(startStack, endStack);
-   checkForWin();
- } else {
-   console.log('It Does NOT Works!');
-  }
- }
-
- function getPrompt() {
-   printStacks();
-   rl.question('start stack: ', (startStack) => {
-     rl.question('end stack: ', (endStack) => {
-       towersOfHanoi(startStack, endStack);
-       getPrompt();
-     });
-   });
- }
-
-   getPrompt();
-
 }
 
+function checkForWin() {
+  // Your code here
+  if (stacks.c.length === 4){
+     console.log("Win!");
+    }
+}
 
+function towersOfHanoi(startStack, endStack) {
+  // Your code here
+  if (isLegal(startStack, endStack)){
+     movePiece(startStack, endStack);
+     checkForWin();
+   } else {
+     console.log('It Does NOT Works!');
+    }
+}
 
+function getPrompt() {
+  printStacks();
+  rl.question('start stack: ', (startStack) => {
+    rl.question('end stack: ', (endStack) => {
+      towersOfHanoi(startStack, endStack);
+      getPrompt();
+    });
+  });
+}
+
+  getPrompt();
+
+// 'use strict';
+//
+// const assert = require('assert');
+// const readline = require('readline');
+// const rl = readline.createInterface({
+//   input: process.stdin,
+//   output: process.stdout
+// });
+//
+// let stacks = {
+//   a: [4, 3, 2, 1],
+//   b: [],
+//   c: []
+// };
+//
+// function printStacks() {
+//   console.log("a: " + stacks.a);
+//   console.log("b: " + stacks.b);
+//   console.log("c: " + stacks.c);
+//
+// /* Whiteboarding
+// //  - Create 3 columns(stacks);
+// //  - Create a variable for 4 disc
+// //  - Start to movePiece
+// // - disc1 to stack.b; disc2 to stack.c; disc1 to stack.c; disc 3 to stack.b;
+// // - disc1 to stack.a; disc2 to stack.b; disc1 to stack.b; disc4 to stack.c;
+// // - disc1 to stack.c; disc2 to stack.a; disc1 to stack.a; disc3 to stackc;
+// // - disc1 to stack.b; disc2 to stack.c; disc1 to stack.c for the WIN!.*/
+//
+//  function movePiece(startStack,endStack) {
+//    // Your code here
+//     stacks[endStack].push(stacks[startStack].pop());
+//  }
+//
+//  function isLegal(startStack, endStack) {
+//    // Your code here
+//   if(stacks[startStack].length === 0){
+//     return false;
+//     console.log("Invalid Entry");
+//   } else if (stacks[endStack].length === 0) {
+//     return true;
+//   } else {
+//     return stacks[startStack].length -1 < stacks[endStack].length -1;
+//   }
+//   // (stacks[startStack].pop() < endStack.lastIndexOf){
+//   //    return true;
+//   //  } else{
+//   //  return false;
+//   // }
+//  }
+//
+//  function checkForWin() {
+//    // Your code here
+//   if (stacks.c.length === 4){
+//     console.log("Win!");
+//   }
+//  }
+//
+//  function towersOfHanoi(startStack, endStack) {
+//    // Your code here
+//  if (isLegal(startStack, endStack)){
+//    movePiece(startStack, endStack);
+//    checkForWin();
+//  } else {
+//    console.log('It Does NOT Works!');
+//   }
+//  }
+//
+//  function getPrompt() {
+//    printStacks();
+//    rl.question('start stack: ', (startStack) => {
+//      rl.question('end stack: ', (endStack) => {
+//        towersOfHanoi(startStack, endStack);
+//        getPrompt();
+//      });
+//    });
+//  }
+//
+//    getPrompt();
+//
+// }
+//
+//
+//
 
 // 'use strict';
 //
@@ -185,48 +231,4 @@ function isLegal(startStack, endStack) {
 //       getPrompt();
 //     });
 //   });
-// }
-//
-// // Tests
-//
-// if (typeof describe === 'function') {
-//
-//   describe('#towersOfHanoi()', () => {
-//     it('should be able to move a block', () => {
-//       towersOfHanoi('a', 'b');
-//       assert.deepEqual(stacks, { a: [4, 3, 2], b: [1], c: [] });
-//     });
-//   });
-//
-//   describe('#isLegal()', () => {
-//     it('should not allow an illegal move', () => {
-//       stacks = {
-//         a: [4, 3, 2],
-//         b: [1],
-//         c: []
-//       };
-//       assert.equal(isLegal('a', 'b'), false);
-//     });
-//     it('should allow a legal move', () => {
-//       stacks = {
-//         a: [4, 3, 2, 1],
-//         b: [],
-//         c: []
-//       };
-//       assert.equal(isLegal('a', 'c'), true);
-//     });
-//   });
-//   describe('#checkForWin()', () => {
-//     it('should detect a win', () => {
-//       stacks = { a: [], b: [4, 3, 2, 1], c: [] };
-//       assert.equal(checkForWin(), true);
-//       stacks = { a: [1], b: [4, 3, 2], c: [] };
-//       assert.equal(checkForWin(), false);
-//     });
-//   });
-//
-// } else {
-//
-//   getPrompt();
-//
 // }
