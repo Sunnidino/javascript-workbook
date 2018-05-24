@@ -38,41 +38,70 @@ function isLegal(startStack, endStack) {
  if(stacks[startStack].length === 0){
    return false;
    console.log("Invalid Entry");
+ } let stacks = {
+   a: [4, 3, 2, 1],
+   b: [],
+   c: []
+ };
+
+ function printStacks() {
+   console.log("a: " + stacks.a);
+   console.log("b: " + stacks.b);
+   console.log("c: " + stacks.c);
+
+ }/* Whiteboarding
+ //  - Create 3 columns(stacks);
+ //  - Create a variable for 4 disc
+ //  - Start to movePiece
+ // - disc1 to stack.b; disc2 to stack.c; disc1 to stack.c; disc 3 to stack.b;
+ // - disc1 to stack.a; disc2 to stack.b; disc1 to stack.b; disc4 to stack.c;
+ // - disc1 to stack.c; disc2 to stack.a; disc1 to stack.a; disc3 to stackc;
+ // - disc1 to stack.b; disc2 to stack.c; disc1 to stack.c for the WIN!.*/
+
+ function movePiece(startStack,endStack) {
+   // Your code here
+   const capturedDisk = stacks[startStack].pop();
+    stacks[endStack].push(capturedDisk);
  }
-}
 
-function checkForWin() {
-  // Your code here
- if (stacks.c.length === 4){
-   console.log("Win!");
+ function isLegal(startStack, endStack) {
+   // Your code here
+  if(stacks[startStack].length === 0){
+    return false;
+    console.log("Invalid Entry");
+  } else (stacks[endStack].length -1 > )
  }
-}
 
-function towersOfHanoi(startStack, endStack) {
-  // Your code here
-if (isLegal(startStack, endStack)){
-  movePiece(startStack, endStack);
-  checkForWin();
-} else {
-  console.log('It Does NOT Works!');
+ function checkForWin() {
+   // Your code here
+  if (stacks.c.length === 4){
+    console.log("Win!");
+  }
  }
+
+ function towersOfHanoi(startStack, endStack) {
+   // Your code here
+ if (isLegal(startStack, endStack)){
+   movePiece(startStack, endStack);
+   checkForWin();
+ } else {
+   console.log('It Does NOT Works!');
+  }
+ }
+
+ function getPrompt() {
+   printStacks();
+   rl.question('start stack: ', (startStack) => {
+     rl.question('end stack: ', (endStack) => {
+       towersOfHanoi(startStack, endStack);
+       getPrompt();
+     });
+   });
+ }
+
+   getPrompt();
+
 }
-
-function getPrompt() {
-  printStacks();
-  rl.question('start stack: ', (startStack) => {
-    rl.question('end stack: ', (endStack) => {
-      towersOfHanoi(startStack, endStack);
-      getPrompt();
-    });
-  });
-}
-
-  getPrompt();
-
-
-
-
 
 
 
