@@ -8,6 +8,7 @@ class TicTacToe extends React.Component {
   render() {
     return (
       <div>
+        <h1>hello</h1>
         <div className="row">
           <div data-cell="0"></div>
           <div data-cell="1"></div>
