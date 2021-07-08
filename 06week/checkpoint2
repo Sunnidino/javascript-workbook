@@ -1,0 +1,51 @@
+"use strict";
+
+// Given 1000 digits of PI as strings, return an array of the digits as numbers
+const nums = [];
+for (x = 1; x <= 1000; x ++){
+ console.log(x);
+}
+
+// Find the sum of the even values
+let sumEvens = 0;
+for (let i = 0; i <= 100; i++) {
+	if (i % 2 === 0) {
+		sumEvens += i;
+	}
+}
+console.log(sumEvens);
+
+// Return an object with counts for each number. The key
+// should indicate the number and the value should indicate
+// how many occurrences that number has in the pi array.
+
+// for example, the array ['2','5','5','7'] would produce
+// the following object
+// {
+//   0: 0,
+//   1: 0,
+//   2: 1,
+//   3: 0,
+//   4: 0,
+//   5: 2,
+//   6: 0,
+//   7: 1,
+// }
+//
+// create a similar object for the pi array.
+const numCount = [1,2,3,4,5];
+const iterator = numCount.values();
+ for (let numCount of iterator){
+   console.log(numCount);
+ }
+
+ // Find the index of the first "Austin" value (the value plus its index equals 512)
+
+ const atxIdx = ['Austin'];
+ const nums = 512;
+
+ const city = atxIdx.map((atxIdx) => {
+   return `city-#{atxIdx}` ;
+ });
+
+ console.log(`index: ${atxIdx}, value: ${nums}`);
