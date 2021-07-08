@@ -6,20 +6,47 @@ function forEach(arr, callback) {
   // Your code here
 }
 
-function map(arr, callback) {
-  // Your code here
+const myMap = (a,b) => {
+  const newArr = [];
+  for (let i = 0; i < a.length; i++){
+    newArr[i] = b(a[i]);
+  }
+  return newArr;
 }
+myMap(oldArr, fun);
 
 function filter(arr, callback) {
   // Your code here
 }
 
-function some(arr, callback) {
-  // Your code here
+
+
+const every = (arr,callback) => {
+  for (let i = 0; i <arr.length; i++){
+    if (callback(arr[i])){
+      return true;
+    }
+  }
+  return false;
+}
+every(semesterGrades, passingGrade);
+
+const some = (arr,callback) =>{
+for (let i = 0; i <arr.length; i++){
+    if (callback(arr[i])){
+      return true;
+    } else {
+    return false;
+    }
+  }
 }
 
-function every(arr, callback) {
-  // Your code here
+const find = (arr,callback) => {
+  for (let i = 0; i <arr.length; i++){
+    if (callback(arr[i])){
+      return true;
+    }
+  }
 }
 
 if (typeof describe === 'function') {
