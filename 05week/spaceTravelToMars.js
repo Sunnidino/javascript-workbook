@@ -10,6 +10,53 @@ let jobTypes = {
 };
 
 // Your code here
+class CrewMember{
+  constructor(name, job, specialSkill){
+    this.name = name;
+    this.job = job;
+    this.specialSkill = specialSkill;
+    this.ship = null;
+  }
+  const enterShip=(ship)=>{  //The code did not work in the terminal, but works in repl.
+      this.ship = ship;
+      ship.crew.push(this.name);
+    }
+};
+
+const crewMember1 = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
+crewMember1.enterShip('mav');
+console.log(crewMember1);
+const crewMember2 = new CrewMember('Commander Lewis', 'commander', 'geology');
+crewMember2.enterShip('hermes');
+console.log(crewMember2);
+
+
+class Ship{
+  constructor(name, type, ability){
+    this.name = name;
+    this.type = type;
+    this.ability = ability;
+    this.crew = [];
+  }
+};
+const mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
+console.log(mav);
+
+const hermes = new Ship('Hermes', 'Main Ship', 'Interplanetary Space Travel');
+console.log(hermes);
+
+const missionStatement = (crewMember1, crewMember2) => {
+  if (crewMember1.enterShip(mav)){
+    console.log(mav.missionStatement(), "Ascend into low orbit");
+  } else {
+    return (mav.missionStatement(), "Can't perform a mission yet.");
+  }
+  if (crewMember2.enterShip(hermes)){
+    console.log(mav.missionStatement(), "Can't perform a mission yet.");
+  } else {
+    console.log(hermes.missionStatement(), "Can't perform a mission yet.");
+  }
+};
 
 //tests
 if (typeof describe === 'function'){
